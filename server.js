@@ -9,11 +9,11 @@ const posts = require('./routes/api/posts')
 const app = express()
 
 //body parser middleware
-app.use(bodyParser.urlencoded({extenden:false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //DB Config
-const db = require('./config/keys.js').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 //Conect to mongoDB
 mongoose
@@ -24,7 +24,6 @@ mongoose
 app.get('/', (req, res) => res.send('Hello world!'))
 
 //Use routes
-
 app.use('/api/users', users)
 app.use('/api/profile', profile)
 app.use('/api/posts', posts)
