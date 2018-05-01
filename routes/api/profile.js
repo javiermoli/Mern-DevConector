@@ -223,6 +223,8 @@ router.delete('/experience/:exp_id', passport.authenticate('jwt', {session: fals
   })
 })
 
+
+
 // @route DELETE api/profile/education/:edu_id
 // @desc Delete education from profile
 // @acces Private
@@ -230,7 +232,11 @@ router.delete('/education/:edu_id', passport.authenticate('jwt', {session: false
 
   Profile.findOne({user: req.user.id}).then(profile => {
     //Get remove index
-    const removeIndex = profile.education.map(item => item.id).indexOf(req.params.edu_id)
+    req.params.edu_id
+    const removeIndex = profile.education.map(item =>{
+      console.log(item.id);
+      return item.id
+    } ).indexOf(req.params.edu_id)
 
     if (removeIndex >= 0) {
       // Splice out of array
