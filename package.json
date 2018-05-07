@@ -9,7 +9,6 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-
   },
   "author": "Javier Molinas <javomolinas91@gmail.com> (https://www.facebook.com/javier.molinas1)",
   "license": "ISC",
