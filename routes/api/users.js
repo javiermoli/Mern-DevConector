@@ -71,7 +71,7 @@ router.post('/login', (req, res) => {
   User.findOne({email}).then(user => {
     //check for users
     if (!user) {
-      errors.email = 'User not found'
+      errors.email = {email:'User not found'};
       return res.status(404).json(errors.email);
     }
     //check passwrod
@@ -95,7 +95,7 @@ router.post('/login', (req, res) => {
         })
 
       } else {
-        errors.password = 'Password incorrect'
+        errors.password = {password:'Password incorrect'}
         return res.status(400).json(errors.password)
       }
     })
